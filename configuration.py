@@ -40,7 +40,7 @@ def get_sleep_time():
     sleep_time = input('请输入刷新间隔（秒）：')
     try:
         if sleep_time >= "600" or sleep_time <= "0":
-            print('刷新间隔过长，请重新输入')
+            print('刷新间隔过长或过短，请重新输入')
             return get_sleep_time()
         sleep_time = int(sleep_time)
         return sleep_time
