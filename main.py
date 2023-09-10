@@ -2,6 +2,7 @@ import get_ip
 import zone_set
 import configuration
 import iam_set
+import record
 
 
 if __name__ == '__main__':
@@ -14,13 +15,17 @@ if __name__ == '__main__':
     key = input('是否有现成的IAM密钥？(y/n)')
     if key == 'y':
         IAM_TOKEN = input('请输入IAM密钥：')
-        # 校验IAM密钥是否有效
-        iam_set.check_token(IAM_TOKEN)
     else:
         # 通过IAM获取token
         IAM_TOKEN = iam_set.get_token(cloud_service_provider)
         # 展示所有zone并获取zone_id
     zone_set.get_zone_id(cloud_service_provider, IAM_TOKEN)
-    input('请输入对应域名的ID：')
+    zone_id = input('请输入对应域名的ID：')
     ip = get_ip.getip(from_url)
-    print(ip)
+    dns = input('你是否有现成的记录集？(y/n)')
+    if dns == 'y':
+        record.get_record_id(zone_id, IAM_TOKEN)
+        record_id = input('请输入对应记录的ID：')
+    else:
+        record.creat_dns()
+    record.change_dns(zone_id, record_id, IAM_TOKEN, ip)

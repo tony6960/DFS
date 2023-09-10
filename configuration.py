@@ -4,9 +4,8 @@ def get_ip_from():
     print('2. http://icanhazip.com')
     print('3. http://ipinfo.io/ip')
     print('4. http://ip.3322.net')
-    print('5. http://myip.ipip.net')
-    print('6. http://www.trackip.net/ip')
-    print('7. 自定义源(有几率出现错误)')
+    print('5. http://www.trackip.net/ip')
+    print('6. 自定义源(有几率出现错误)')
     from_addr = input('请输入API源编号：')
     if from_addr == '1':
         return 'http://ip.42.pl/raw'
@@ -17,10 +16,8 @@ def get_ip_from():
     elif from_addr == '4':
         return 'http://ip.3322.net'
     elif from_addr == '5':
-        return 'http://myip.ipip.net'
-    elif from_addr == '6':
         return 'http://www.trackip.net/ip'
-    elif from_addr == '7':
+    elif from_addr == '6':
         return input('请输入自定义源：')
     else:
         print('输入错误，请重新输入')
@@ -28,8 +25,7 @@ def get_ip_from():
 
 
 def get_sleep_time():
-    print('请输入刷新间隔（秒）：')
-    sleep_time = input()
+    sleep_time = input('请输入刷新间隔（秒）：')
     try:
         sleep_time = int(sleep_time)
         return sleep_time
