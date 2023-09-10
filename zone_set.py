@@ -12,6 +12,7 @@ def get_zone_id(provider, IAM_TOKEN):
             'Content-Type': 'application/json;charset=utf8',
             'X-Auth-Token': IAM_TOKEN
         }
-        r = requests.get(url, headers=headers)
-        print(r.text)
-        return r.text
+        zones = requests.get(url, headers=headers)
+        # 提取所以zone的id和name并输出
+        for zone in zones.json()['zones']:
+            print(zone['id'], zone['name'])

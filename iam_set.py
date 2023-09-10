@@ -40,3 +40,7 @@ def get_token(provider):
         r = requests.post(url, headers=headers, json=data)
         IAM_TOKEN = r.headers['X-Subject-Token']
         return IAM_TOKEN
+
+
+def check_token(token):
+    print('正在检查IAM密钥是否有效...')
