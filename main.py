@@ -9,6 +9,7 @@ import time
 if __name__ == '__main__':
     # 定义IP获取地址源
     from_url = configuration.get_ip_from()
+    ip = ""
     if from_url == 'json':
         get_ip.getip_json()
     else:

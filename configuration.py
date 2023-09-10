@@ -39,6 +39,9 @@ def json_key():
 def get_sleep_time():
     sleep_time = input('请输入刷新间隔（秒）：')
     try:
+        if sleep_time >= "600" or sleep_time <= "0":
+            print('刷新间隔过长，请重新输入')
+            return get_sleep_time()
         sleep_time = int(sleep_time)
         return sleep_time
     except:
@@ -55,3 +58,6 @@ def get_cloud_service_provider():
         return 1
     elif privider == '2':
         return 2
+    else:
+        print('输入错误，请重新输入')
+        return get_cloud_service_provider()
