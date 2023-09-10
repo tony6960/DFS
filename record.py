@@ -27,16 +27,21 @@ def change_dns(zone_id, record_id, IAM_TOKEN, ip):
     r = requests.put(url, headers=headers, json=data)
 
 
-def creat_dns(zone_id, IAM_TOKEN, ip):
+def creat_dns(zone_id, IAM_TOKEN, ip, domain):
     url = 'https://dns.myhuaweicloud.com/v2/zones/' + zone_id + '/recordsets'
     headers = {
         'X-Auth-Token': IAM_TOKEN
     }
     data = {
-        "name": "dns.example.com.",
+        "name": f"dns.{domain}.",
         "description": "made by DFS",
         "type": "A",
-        "ttl": 3600,
-        "records": ip
+        "ttl": 300,
+        "records": [ip]
     }
     r = requests.post(url, headers=headers, json=data)
+    print(url)
+    print(headers)
+    print(data)
+    print(r.status_code)
+    print(r.text)

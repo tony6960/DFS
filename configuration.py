@@ -5,7 +5,8 @@ def get_ip_from():
     print('3. http://ipinfo.io/ip')
     print('4. http://ip.3322.net')
     print('5. http://www.trackip.net/ip')
-    print('6. 自定义源(有几率出现错误)')
+    print('6. 自定义源(纯文本类)')
+    print('7. 自定义源(JSON类)')
     from_addr = input('请输入API源编号：')
     if from_addr == '1':
         return 'http://ip.42.pl/raw'
@@ -19,9 +20,20 @@ def get_ip_from():
         return 'http://www.trackip.net/ip'
     elif from_addr == '6':
         return input('请输入自定义源：')
+    elif from_addr == '7':
+        return 'json'
     else:
         print('输入错误，请重新输入')
         return get_ip_from()
+
+
+def json_addr():
+    return input('请输入自定义源：')
+
+
+def json_key():
+    return input('请输入自定义源的key：')
+
 
 
 def get_sleep_time():

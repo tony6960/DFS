@@ -30,8 +30,8 @@ def get_token(provider):
                     }
                 },
                 "scope": {
-                    "domain": {
-                        "name": from_user
+                    "project": {
+                        "name": "cn-north-4"
                     }
                 }
             }
